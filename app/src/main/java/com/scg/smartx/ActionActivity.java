@@ -224,23 +224,9 @@ public class ActionActivity extends AppCompatActivity {
 
             Bitmap image = (Bitmap) data.getExtras().get("data");
             imgPreview.setImageBitmap(image);
-
             Uri tempUri = getImageUri(getApplicationContext(), image);
-            //File finalFile = new File(getRealPathFromURI(tempUri));
             mediaPath = getRealPathFromURI(tempUri);
 
-            /*
-            // การอ่าน path ของรูปที่ถ่ายมา
-            File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-            try{
-                File image = File.createTempFile("scg_",".jpg",storageDir);
-                mediaPath = image.getAbsolutePath();
-                Toast.makeText(ActionActivity.this,"Path ="+mediaPath,Toast.LENGTH_LONG).show();
-            }catch (IOException e){
-                e.printStackTrace();
-            }
-            */
-            
         }else if(requestCode == 1 && resultCode == Activity.RESULT_OK && null != data){
 
             Uri selectedImage = data.getData();
