@@ -6,11 +6,15 @@ import com.scg.smartx.model.UserShow;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 public interface RestAPI {
 
@@ -27,17 +31,19 @@ public interface RestAPI {
     );
 
     // ส่งข้อมูล Job ไปบันทึกในตาราง job ผ่าน API
-    @FormUrlEncoded
+    @Multipart
+//    @FormUrlEncoded
     @POST("job")
     Call<JobAdd> jobAdd(
-            @Field("eqnum") String eqnum,
-            @Field("description") String description,
-            @Field("status") String status,
-            @Field("picture1") String picture1,
-            @Field("gps_lat") String gps_lat,
-            @Field("gps_long") String gps_long,
-            @Field("light") String light,
-            @Field("userid") String userid
+            @Part("eqnum") RequestBody eqnum,
+            @Part("description") RequestBody  description,
+            @Part("status") RequestBody  status,
+            @Part MultipartBody.Part file,
+            @Part("file") RequestBody name,
+            @Part("gps_lat") RequestBody  gps_lat,
+            @Part("gps_long") RequestBody  gps_long,
+            @Part("light") RequestBody  light,
+            @Part("userid") RequestBody  userid
     );
 
 }
