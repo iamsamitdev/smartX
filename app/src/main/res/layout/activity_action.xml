@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ActionActivity">
+
+    <!--Toolbar-->
+    <include
+        android:id="@+id/tbcontent"
+        layout="@layout/content_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Eqnum"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editEqnum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Description"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|left"
+                android:inputType="textMultiLine"
+                android:lines="4"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Status"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spinStatus"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:popupBackground="#FFFF99" />
+
+            <ImageView
+                android:id="@+id/imgPreview"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/nopic"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnTakePicture"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="#00E676"
+                    android:textSize="20sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:textColor="#fff"
+                    android:text="Camera"/>
+
+                <Button
+                    android:id="@+id/btnChooseGallery"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="#F50057"
+                    android:textSize="20sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:textColor="#fff"
+                    android:text="Gallery"/>
+
+            </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorAccent"
+                    android:text="บันทึกข้อมูล"
+                    android:textSize="20sp"
+                    android:textColor="#fff"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
