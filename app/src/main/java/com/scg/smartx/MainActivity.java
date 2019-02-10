@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.scg.smartx.api.RestAPI;
@@ -54,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
                 checkLogin.enqueue(new Callback<UserLogin>() {
                     @Override
                     public void onResponse(Call<UserLogin> call, Response<UserLogin> response) {
-                        Log.d("Data = ", new Gson().toJson(response.body()));
-                        if(response.body().getStatus().equals("success")){
+
+                        if (response.body().getStatus().equals("success")) {
 
                             // สร้างตัวแปรประเภทที่จำค่าไว้ใช้ในหน้าอื่นได้
                             pref = getSharedPreferences("pref_login", Context.MODE_PRIVATE);
@@ -64,9 +65,9 @@ public class MainActivity extends AppCompatActivity {
                             editor.apply();
 
                             // พาไปหน้า Dashboard
-                            Intent intent = new Intent(MainActivity.this,DashboardActivity.class);
+                            Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
                             startActivity(intent);
-                        }else{
+                        } else {
                             // แจ้งเตือนว่าล็อกอินไม่ถูกต้อง
                             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                             builder.setTitle("แจ้งเตือน");
@@ -83,13 +84,12 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<UserLogin> call, Throwable t) {
-
+                        Toast.makeText(getApplicationContext(), "ติดต่อเซิฟเวอร์ไม่ได้ :( ลองอีกครั้ง", Toast.LENGTH_LONG).show();
                     }
                 });
 
             }
         });
-
 
 
     }
